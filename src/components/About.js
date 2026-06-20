@@ -23,7 +23,7 @@ export default function About() {
   };
 
   return (
-    <section id="about" className="relative py-28 md:py-44 bg-gradient-to-b from-[#FDFBF9] via-[#FAF6F0] to-[#F3EEE5] overflow-hidden">
+    <section id="#about" className="relative py-28 md:py-44 bg-gradient-to-b from-[#FDFBF9] via-[#FAF6F0] to-[#F3EEE5] overflow-hidden">
       
       {/* ─── PREMIUM BACKGROUND AMBIENT GLOW ─── */}
       <div className="absolute top-10 right-[-5%] w-[600px] h-[600px] bg-gradient-to-br from-[#D4AF37]/5 to-[#6F4E37]/0 blur-[140px] rounded-full pointer-events-none" />

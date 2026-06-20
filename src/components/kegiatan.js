@@ -23,7 +23,7 @@ export default function Kegiatan() {
   };
 
   return (
-    <section id="kegiatan" className="relative py-28 md:py-36 bg-gradient-to-b from-[#F3EEE5] via-[#FAF6F0] to-[#FFFDFB] overflow-hidden">
+    <section id="#kegiatan" className="relative py-28 md:py-36 bg-gradient-to-b from-[#F3EEE5] via-[#FAF6F0] to-[#FFFDFB] overflow-hidden">
       
       {/* ─── AMBIENT GLOW YANG SELARAS DENGAN ABOUT ─── */}
       <div className="absolute top-1/4 left-[-5%] w-[500px] h-[500px] bg-[#D4AF37]/5 blur-[120px] rounded-full pointer-events-none" />

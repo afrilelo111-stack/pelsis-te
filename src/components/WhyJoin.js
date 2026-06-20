@@ -49,7 +49,7 @@ export default function WhyJoin() {
   };
 
   return (
-    <section id="whyjoin" className="relative py-28 md:py-36 bg-[#FAF8F5] overflow-hidden">
+    <section id="#whyjoin" className="relative py-28 md:py-36 bg-[#FAF8F5] overflow-hidden">
       
       {/* Ambient Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-[#D4AF37]/5 blur-[140px] rounded-full pointer-events-none" />
