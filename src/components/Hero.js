@@ -33,17 +33,16 @@ export default function Hero() {
           {/* Lapisan Glow Emas 2: Pendaran Luar Luas */}
           <div className="absolute inset-0 bg-gradient-to-tr from-[#D4AF37]/15 to-[#AA7C11]/25 blur-3xl rounded-full scale-150 group-hover:scale-165 transition-transform duration-700 mix-blend-screen" />
           
-          {/* Elemen Logo Bersih tanpa Box/Border */}
-          <div className="relative p-2 flex items-center justify-center">
+        `  <div className="relative w-[120px] h-[120px] p-2 flex items-center justify-center">
             <Image 
               src="/logo/logo.png" 
               alt="Logo TE SMKN 3" 
-              width={120} 
-              height={120} 
+              fill 
+              sizes="120px"
               className="object-contain filter drop-shadow-[0_0_20px_rgba(212,175,55,0.5)] drop-shadow-[0_12px_30px_rgba(0,0,0,0.6)] group-hover:scale-105 transition-all duration-500"
               priority
             />
-          </div>
+          </div>`
         </motion.div>
 
         {/* Sub-header Sekolah */}

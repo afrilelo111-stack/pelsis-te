@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
+import Kegiatan from "@/components/Kegiatan";
 import WhyJoin from "@/components/WhyJoin";
 import Footer from "@/components/Footer";
 
@@ -12,7 +13,7 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState("Beranda");
   const [showMobileNav, setShowMobileNav] = useState(true);
 
-  // 1. Sistem Auto-Hide Mobile Nav Saat Scroll (Lebih Mulus & Kebal Guncangan)
+  // 1. Auto-Hide Mobile Navbar (Optimized Performance)
   useEffect(() => {
     let lastScrollY = window.scrollY;
     let ticking = false;
@@ -22,8 +23,7 @@ export default function Home() {
       
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          // Hanya sembunyikan jika scroll ke bawah melampaui 120px
-          if (currentScrollY > lastScrollY && currentScrollY > 120) {
+          if (currentScrollY > lastScrollY && currentScrollY > 150) {
             setShowMobileNav(false);
           } else if (currentScrollY < lastScrollY) {
             setShowMobileNav(true);
@@ -39,21 +39,21 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // 2. Intersection Observer dengan Batas (Margin) yang Presisi untuk Grid Navbar
+  // 2. Precision Intersection Observer
   useEffect(() => {
-    const sections = ["beranda", "about", "whyjoin"];
+    const sections = ["beranda", "about", "kegiatan", "whyjoin"];
     
     const tabMapping = {
       beranda: "Beranda",
       about: "Tentang",
-      whyjoin: "Kegiatan",
+      kegiatan: "Kegiatan",
+      whyjoin: "Mengapa Bergabung",
     };
 
     const observerOptions = {
       root: null,
-      // Disesuaikan agar tab berganti tepat saat bagian utama section menyentuh area pandang laptop
-      rootMargin: "-25% 0px -55% 0px", 
-      threshold: 0.05,
+      rootMargin: "-30% 0px -45% 0px", // Akurasi tinggi untuk deteksi viewport desktop & mobile
+      threshold: 0.1,
     };
 
     const observerCallback = (entries) => {
@@ -80,18 +80,18 @@ export default function Home() {
     };
   }, []);
 
-  // Variasi Animasi Reveal yang Mewah & Elastis (Spring)
+  // Efek Cinematic Ultra-Smooth Reveal Animation dengan Easing Bezier Custom
   const fadeInUp = {
     hidden: { opacity: 0, y: 50 },
     visible: { 
       opacity: 1, 
       y: 0, 
-      transition: { duration: 1, ease: [0.16, 1, 0.3, 1] } // Efek Cinematic Ultra-Smooth
+      transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] } 
     }
   };
 
   return (
-    <main className="relative min-h-screen bg-[#FFFDFB] text-slate-800 antialiased selection:bg-[#D4AF37]/20 selection:text-[#6F4E37] overflow-x-hidden scroll-smooth">
+    <main className="relative min-h-screen bg-[#FFFDFB] text-stone-800 antialiased selection:bg-[#D4AF37]/20 selection:text-[#6F4E37] overflow-x-hidden scroll-smooth">
       
       {/* Navbar Adaptif Premium */}
       <Navbar 
@@ -99,34 +99,52 @@ export default function Home() {
         setActiveTab={setActiveTab} 
         showMobileNav={showMobileNav} 
       />
-      {/* SECTION 1: HERO */}
+
+      {/* SECTION 1: HERO (Latar Belakang Utama) */}
       <div id="beranda" className="w-full scroll-mt-0">
         <Hero />
       </div>
 
-      {/* SECTION 2: ABOUT (Diberi Jarak Aman scroll-mt Supaya Tidak Tertutup Navbar Melayang) */}
-      <motion.div 
-        id="about" 
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-15%" }}
-        variants={fadeInUp}
-        className="relative z-10 bg-[#FFFDFB] scroll-mt-24"
-      >
-        <About />
-      </motion.div>
+      {/* RANGKAIAN KONTEN UTAMA DENGAN WARNA MENGALIR (SEAMLESS) */}
+      <div className="relative z-10">
+        
+        {/* SECTION 2: ABOUT */}
+        <motion.div 
+          id="about" 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-12%" }}
+          variants={fadeInUp}
+          className="scroll-mt-20 bg-[#FFFDFB]"
+        >
+          <About />
+        </motion.div>
 
-      {/* SECTION 3: WHY JOIN */}
-      <motion.div 
-        id="whyjoin" 
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-15%" }}
-        variants={fadeInUp}
-        className="relative z-10 bg-white scroll-mt-24"
-      >
-        <WhyJoin />
-      </motion.div>
+        {/* SECTION 3: KEGIATAN (Menggunakan warna yang selaras namun bergradasi lembut) */}
+        <motion.div 
+          id="kegiatan" 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-12%" }}
+          variants={fadeInUp}
+          className="scroll-mt-20"
+        >
+          <Kegiatan />
+        </motion.div>
+
+        {/* SECTION 4: WHY JOIN (Pemberhentian Terakhir Menuju Soft Pearl Cream) */}
+        <motion.div 
+          id="whyjoin" 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-12%" }}
+          variants={fadeInUp}
+          className="scroll-mt-20 bg-[#FAF8F5]"
+        >
+          <WhyJoin />
+        </motion.div>
+
+      </div>
 
       {/* FOOTER */}
       <Footer />

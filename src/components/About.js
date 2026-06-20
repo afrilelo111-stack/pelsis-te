@@ -2,10 +2,9 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Sparkles, Heart, Cross, CalendarDays, Award } from "lucide-react";
+import { Sparkles, Heart, Cross, CalendarDays, Award, ShieldCheck, Flame, Bookmark } from "lucide-react";
 
 export default function About() {
-  // Animasi Stagger Konten untuk Efek Membuka Halaman yang Halus
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -38,10 +37,8 @@ export default function About() {
         className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-16 lg:gap-20 px-6 md:px-12 items-center"
       >
         
-        {/* ─── KOLOM KIRI: THE LUXURY TRIPLE FOTO PORTFOLIO COLLAGE (5 COLS) ─── */}
+        {/* ─── KOLOM KIRI: THE LUXURY TRIPLE FOTO PORTFOLIO COLLAGE ─── */}
         <motion.div variants={itemVariants} className="lg:col-span-5 relative w-full min-h-[500px] sm:min-h-[560px] lg:min-h-[620px] flex items-center justify-center">
-          
-          {/* ORNAMEN BINGKAI GEOMETRIS ABSTRAK DI BELAKANG */}
           <div className="absolute inset-4 rounded-[2.5rem] border border-[#D4AF37]/10 pointer-events-none z-0" />
           
           {/* FOTO 1: JANGKAR UTAMA */}
@@ -81,93 +78,115 @@ export default function About() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent mix-blend-multiply" />
           </div>
 
-          {/* FLOATING GLASS INSIGNIA */}
-          <div className="absolute bottom-2 left-[-2%] p-4 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-xl flex items-center gap-3.5 z-40 max-w-[240px] transform select-none hover:scale-105 transition-transform duration-300">
+          {/* FLOATING GLASS INSIGNIA (Diperbarui agar super kontras dan mudah dibaca) */}
+          <div className="absolute bottom-2 left-[-2%] p-4 bg-white/95 backdrop-blur-md border border-stone-200 rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.15)] flex items-center gap-3.5 z-40 max-w-[240px] transform select-none hover:scale-105 transition-all duration-300">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#6F4E37] to-[#8B6347] flex items-center justify-center text-white shadow-md shrink-0">
               <Cross size={18} className="text-[#D4AF37]" />
             </div>
             <div className="leading-tight">
-              <p className="text-[9px] font-black tracking-[0.2em] text-[#FFF5D6] uppercase">Soli Deo</p>
-              <p className="text-sm font-black text-white mt-0.5">Bertumbuh & Bersinar</p>
+              <p className="text-[10px] font-black tracking-[0.2em] text-[#B38F24] uppercase">
+                Soli Deo
+              </p>
+              <p className="text-xs font-black text-[#6F4E37] mt-0.5">
+                Bertumbuh & Bersinar
+              </p>
             </div>
-          </div>
-          
-        </motion.div>
+          </div>        
+          </motion.div>
 
-        {/* ─── KOLOM KANAN: PRESTIGE TYPOGRAPHY PANEL (7 COLS) ─── */}
+        {/* ─── KOLOM KANAN: PANEL VISI & MISI ─── */}
         <motion.div variants={itemVariants} className="lg:col-span-7 flex flex-col justify-center">
           
           <div className="flex items-center gap-3 mb-6 select-none">
             <span className="h-[1px] w-12 bg-gradient-to-r from-[#D4AF37] to-transparent" />
             <span className="text-[10px] md:text-xs font-black tracking-[0.35em] text-[#B38F24] uppercase">
-              FOUNDATION OF FAITH
+              STRATEGI & TUJUAN
             </span>
           </div>
 
           <h2 className="text-4xl md:text-5xl font-black text-[#6F4E37] tracking-tight leading-[1.12] mb-6">
-            Rumah Bertumbuh Bagi <br />
+            Visi & Misi <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6F4E37] via-[#8B6347] to-[#D4AF37]">
-              Generasi Emas Kristus
+              Organisasi Kami
             </span>
           </h2>
 
-          <p className="text-stone-600/90 text-sm md:text-base leading-relaxed mb-9 font-normal max-w-2xl">
-            Team Evangelisasi (TE) hadir sebagai pelukan hangat persekutuan rohani di tengah kesibukan akademik <strong>SMK Negeri 3 Manado</strong>. Kami berkomitmen untuk memuridkan, membimbing, dan mempersiapkan siswa-siswi Kristen agar tidak hanya unggul dalam keahlian duniawi, tetapi juga kokoh mengakar pada karakter Kristus yang berani memancarkan kasih.
-          </p>
+          {/* ── VISI SECTION ── */}
+          <div className="relative p-8 rounded-3xl bg-gradient-to-br from-white/80 to-white/40 border border-white shadow-[0_20px_40px_rgba(111,78,55,0.05)] mb-10 overflow-hidden group">
+            <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+              <Sparkles size={120} className="text-[#D4AF37]" />
+            </div>
+            <h3 className="text-xs font-black tracking-[0.2em] text-[#D4AF37] uppercase mb-3 flex items-center gap-2">
+              <Flame size={14} /> VISI TE
+            </h3>
+            <p className="text-lg md:text-xl font-bold text-[#6F4E37] leading-relaxed italic">
+              &ldquo;Membina karakter setiap siswa kristen melalui persekutuan dan pelayanan untuk menjadi saksi-saksi Kristus sebagai penggenapan amanat agung&rdquo;
+            </p>
+          </div>
 
-          {/* GRID KARTU VISI MISI YANG SUDAH DIPERBARUI */}
-          <div className="grid sm:grid-cols-2 gap-6 mb-12">
-            
-            {/* Kartu Komitmen 1: Doa & Sharing (BARU) */}
-            <div className="relative p-6 rounded-3xl bg-white/40 border border-stone-200/50 shadow-sm transition-all duration-300 hover:bg-white hover:shadow-[0_20px_40px_rgba(111,78,55,0.04)] hover:-translate-y-1 group/card">
-              <div className="w-10 h-10 rounded-xl bg-[#6F4E37]/5 text-[#6F4E37] flex items-center justify-center mb-4 group-hover/card:bg-[#6F4E37] group-hover/card:text-white transition-all duration-300 shadow-sm">
-                <Sparkles size={18} className="text-[#D4AF37]" />
+          {/* ── MISI SECTION ── */}
+          <h3 className="text-xs font-black tracking-[0.2em] text-[#B38F24] uppercase mb-6 pl-2">
+            MISI ORGANISASI
+          </h3>
+
+          <div className="grid gap-4">
+            {/* Misi 1 */}
+            <div className="flex items-start gap-5 p-5 rounded-2xl bg-white/40 border border-stone-200/50 hover:bg-white transition-all duration-300 group/item">
+              <div className="w-10 h-10 rounded-xl bg-[#6F4E37]/5 text-[#D4AF37] flex items-center justify-center shrink-0 group-hover/item:bg-[#6F4E37] group-hover/item:text-white transition-all duration-300">
+                <Bookmark size={20} />
               </div>
-              <h4 className="text-sm font-black text-[#6F4E37] uppercase tracking-wider">Doa & Sharing</h4>
-              <p className="text-xs text-stone-500 mt-2 leading-relaxed">
-                Wadah terbuka untuk berdoa bersama dan saling berbagi beban hidup. Di sini kita bebas menceritakan masalah serta mendapatkan saran, solusi, dan dukungan moril yang menguatkan dari teman-teman seiman.
-              </p>
+              <div>
+                <h4 className="text-xs font-black text-[#6F4E37] uppercase tracking-wider mb-1">Hubungan Pribadi</h4>
+                <p className="text-sm text-stone-600 leading-relaxed">
+                  Membina setiap anggota untuk membangun hubungan pribadi dengan Tuhan melalui pengajaran dan pemuridan.
+                </p>
+              </div>
             </div>
 
-            {/* Kartu Komitmen 2: Pelayanan Sosial */}
-            <div className="relative p-6 rounded-3xl bg-white/40 border border-stone-200/60 shadow-sm transition-all duration-300 hover:bg-white hover:shadow-[0_20px_40px_rgba(111,78,55,0.04)] hover:-translate-y-1 group/card">
-              <div className="w-10 h-10 rounded-xl bg-[#6F4E37]/5 text-[#6F4E37] flex items-center justify-center mb-4 group-hover/card:bg-[#6F4E37] group-hover/card:text-white transition-all duration-300 shadow-sm">
-                <Heart size={18} className="text-[#D4AF37]" />
+            {/* Misi 2 */}
+            <div className="flex items-start gap-5 p-5 rounded-2xl bg-white/40 border border-stone-200/50 hover:bg-white transition-all duration-300 group/item">
+              <div className="w-10 h-10 rounded-xl bg-[#6F4E37]/5 text-[#D4AF37] flex items-center justify-center shrink-0 group-hover/item:bg-[#6F4E37] group-hover/item:text-white transition-all duration-300">
+                <Heart size={20} />
               </div>
-              <h4 className="text-sm font-black text-[#6F4E37] uppercase tracking-wider">Pelayanan Sosial</h4>
-              <p className="text-xs text-stone-500 mt-2 leading-relaxed">Bergerak aktif keluar dari dinding sekolah untuk menyebarkan berkat cinta kasih lewat aksi sosial kemanusiaan.</p>
+              <div>
+                <h4 className="text-xs font-black text-[#6F4E37] uppercase tracking-wider mb-1">Pelayanan Kasih</h4>
+                <p className="text-sm text-stone-600 leading-relaxed">
+                  Membina setiap anggota untuk memberikan pelayanan kasih disekelilingnya.
+                </p>
+              </div>
+            </div>
+
+            {/* Misi 3 */}
+            <div className="flex items-start gap-5 p-5 rounded-2xl bg-white/40 border border-stone-200/50 hover:bg-white transition-all duration-300 group/item">
+              <div className="w-10 h-10 rounded-xl bg-[#6F4E37]/5 text-[#D4AF37] flex items-center justify-center shrink-0 group-hover/item:bg-[#6F4E37] group-hover/item:text-white transition-all duration-300">
+                <ShieldCheck size={20} />
+              </div>
+              <div>
+                <h4 className="text-xs font-black text-[#6F4E37] uppercase tracking-wider mb-1">Integritas Organisasi</h4>
+                <p className="text-sm text-stone-600 leading-relaxed">
+                  Membangun jiwa berorganisasi yang tertib, handal dan bertanggung jawab pada Tuhan dan organisasi.
+                </p>
+              </div>
             </div>
           </div>
 
-          {/* BADGE JAMINAN KUALITAS KOMUNITAS */}
-          <div className="border-t border-stone-300/60 pt-7 flex flex-wrap items-center gap-8 md:gap-14">
-            
+          {/* BADGE JAMINAN KUALITAS */}
+          <div className="border-t border-stone-300/60 mt-10 pt-8 flex flex-wrap items-center gap-8">
             <div className="flex items-center gap-3">
               <div className="w-9 h-9 rounded-full bg-[#D4AF37]/10 flex items-center justify-center text-[#B38F24]">
                 <CalendarDays size={16} />
               </div>
-              <div className="flex flex-col">
-                <span className="text-base font-black text-[#6F4E37] tracking-tight">Rutin & Konsisten</span>
-                <span className="text-[9px] font-bold tracking-wider uppercase text-stone-400 mt-0.5">Ibadah & Persekutuan</span>
-              </div>
+              <span className="text-[10px] font-bold tracking-widest uppercase text-stone-400">Rutin & Terjadwal</span>
             </div>
-
-            <div className="hidden sm:block w-[1px] h-8 bg-stone-300/80" />
-
             <div className="flex items-center gap-3">
               <div className="w-9 h-9 rounded-full bg-[#D4AF37]/10 flex items-center justify-center text-[#B38F24]">
                 <Award size={16} />
               </div>
-              <div className="flex flex-col">
-                <span className="text-base font-black text-[#6F4E37] tracking-tight">Karakter Unggul</span>
-                <span className="text-[9px] font-bold tracking-wider uppercase text-stone-400 mt-0.5">Berdampak Bagi Sekolah</span>
-              </div>
+              <span className="text-[10px] font-bold tracking-widest uppercase text-stone-400">Terakreditasi Sekolah</span>
             </div>
-
           </div>
 
         </motion.div>
-
       </motion.div>
     </section>
   );
